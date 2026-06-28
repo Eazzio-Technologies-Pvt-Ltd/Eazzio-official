@@ -1,0 +1,130 @@
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.text-primary-light {
+  color: #60a5fa; /* Lighter blue */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* detail-hero styles removed - handled by page-hero in index.css */
+
+.detail-icon-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-category-badge {
+  display: inline-block;
+  background-color: rgba(0, 215, 144, 0.2);
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(0, 215, 144, 0.3);
+}
+
+.detail-intro-box {
+  max-width: 800px;
+  margin-bottom: 4rem;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.sidebar-card {
+  height: auto !important; /* Prevents 100% height overlap in sidebar */
+}
+
+.detail-sidebar-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.feature-list-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem !important; /* Override premium card padding */
+}
+
+.feature-check {
+  flex-shrink: 0;
+}
+
+.feature-text {
+  font-weight: 600;
+}
+
+.sidebar-alt-bg {
+  background-color: #f8fafc;
+}
+
+.text-yellow {
+  color: #f59e0b;
+}
+
+.benefit-list li {
+  font-size: 1.05rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #f59e0b;
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.use-case-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+@media (max-width: 992px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-list-grid {
+    grid-template-columns: 1fr;
+  }
+}
