@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import { ArrowRight, ShieldCheck, Zap, TrendingUp, Users, CheckCircle } from 'lucide-react';
@@ -7,6 +8,11 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-page">
+      <Helmet>
+        <title>Eazzio Technologies | Smart Business Software Solutions</title>
+        <meta name="description" content="Empower your business with Eazzio's suite of intuitive, scalable software solutions." />
+      </Helmet>
+
       {/* Hero Section */}
       <header className="hero section">
         <div className="container hero-container">
@@ -42,16 +48,16 @@ const Home = () => {
               <p>Software Products</p>
             </div>
             <div className="stat-card">
-              <h3>100%</h3>
+              <h3>Focus</h3>
               <p>Business Automation</p>
             </div>
             <div className="stat-card">
-              <h3>SaaS</h3>
+              <h3>Web</h3>
               <p>Scalable Solutions</p>
             </div>
             <div className="stat-card">
-              <h3>Web</h3>
-              <p>Modern Technology</p>
+              <h3>SaaS</h3>
+              <p>Modern Architecture</p>
             </div>
           </div>
         </div>
@@ -61,7 +67,7 @@ const Home = () => {
       <section className="section bg-light">
         <div className="container">
           <div className="section-header text-center mb-8">
-            <h2 className="title">Our Products</h2>
+            <h2 className="title">Our Product Ecosystem</h2>
             <p className="subtitle mx-auto">
               Discover our range of specialized software solutions built to tackle your specific business challenges.
             </p>
@@ -78,9 +84,9 @@ const Home = () => {
       <section className="section">
         <div className="container">
           <div className="section-header text-center mb-8">
-            <h2 className="title">Why Choose Eazzio?</h2>
+            <h2 className="title">Built for Growing Businesses</h2>
             <p className="subtitle mx-auto">
-              We build software that works for you, not the other way around.
+              We build software that works for you, not the other way around. Why Choose Eazzio Technologies?
             </p>
           </div>
           <div className="grid grid-cols-2 sm-grid-cols-1 gap-8 features-grid">
@@ -127,7 +133,7 @@ const Home = () => {
       {/* CTA Section */}
       <section className="section cta-section">
         <div className="container text-center">
-          <h2 className="title text-white">Ready to transform your business?</h2>
+          <h2 className="title text-white">Request a Product Demo</h2>
           <p className="subtitle text-white-muted mx-auto">
             Join hundreds of companies that trust Eazzio Technologies for their daily operations.
           </p>

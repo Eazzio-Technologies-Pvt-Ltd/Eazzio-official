@@ -22,7 +22,7 @@ const Footer = () => {
           <ul className="footer-links">
             {products.map(product => (
               <li key={product.id}>
-                <Link to={`/products/${product.id}`}>{product.name}</Link>
+                <Link to={`/products/${product.slug}`}>{product.name}</Link>
               </li>
             ))}
           </ul>
@@ -35,6 +35,8 @@ const Footer = () => {
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/products">All Products</Link></li>
             <li><Link to="/contact">Contact</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/terms-and-conditions">Terms & Conditions</Link></li>
           </ul>
         </div>
 

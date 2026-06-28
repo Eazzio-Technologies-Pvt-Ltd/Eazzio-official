@@ -1,9 +1,15 @@
+import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const Products = () => {
   return (
     <div className="products-page">
+      <Helmet>
+        <title>Products | Eazzio Technologies</title>
+        <meta name="description" content="Explore our comprehensive suite of software solutions designed to optimize your business operations." />
+      </Helmet>
+
       <header className="page-hero text-center">
         <div className="container">
           <h1 className="hero-title text-white">Our Products</h1>

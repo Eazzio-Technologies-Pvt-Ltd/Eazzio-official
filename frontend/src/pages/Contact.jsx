@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import { products } from '../data/products';
 import './Contact.css';
 
 const Contact = () => {
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +15,13 @@ const Contact = () => {
     product: '',
     message: ''
   });
+  
+  useEffect(() => {
+    if (location.state?.selectedProduct) {
+      setFormData(prev => ({ ...prev, product: location.state.selectedProduct }));
+    }
+  }, [location.state]);
+
   const [status, setStatus] = useState({ type: '', message: '' });
   const [loading, setLoading] = useState(false);
 
@@ -26,7 +36,8 @@ const Contact = () => {
     setStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+      const response = await fetch(`${apiUrl}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,11 +62,16 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+      <Helmet>
+        <title>Contact Us | Eazzio Technologies</title>
+        <meta name="description" content="Get in touch with Eazzio Technologies for smart business software solutions." />
+      </Helmet>
+
       <header className="page-hero text-center">
         <div className="container">
           <h1 className="hero-title text-white">Contact Us</h1>
           <p className="hero-subtitle text-white-muted mx-auto">
-            Have questions about our software? Ready for a demo? Our team is here to help.
+            Tell us about your business requirement and our team will get back to you.
           </p>
         </div>
       </header>
