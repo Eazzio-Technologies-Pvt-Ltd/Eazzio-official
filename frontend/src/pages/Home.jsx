@@ -72,7 +72,7 @@ const Home = () => {
               Discover our range of specialized software solutions built to tackle your specific business challenges.
             </p>
           </div>
-          <div className="grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-8">
+          <div className="grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-8 products-hover-grid">
             {products.map(product => (
               <ProductCard key={product.id} product={product} />
             ))}
