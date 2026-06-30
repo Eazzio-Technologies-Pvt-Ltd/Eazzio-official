@@ -52,6 +52,19 @@
   align-items: center;
   justify-content: center;
   border-radius: 14px;
+  transition: transform 0.5s ease;
+}
+
+.product-icon {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.product-card:hover .product-icon {
+  transform: rotate(360deg);
+}
+
+.product-card:hover .product-icon-wrapper {
+  transform: scale(1.05);
 }
 
 .product-category-badge {

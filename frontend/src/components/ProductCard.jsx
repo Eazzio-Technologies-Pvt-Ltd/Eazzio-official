@@ -25,10 +25,36 @@ const ProductCard = ({ product }) => {
           ))}
         </div>
       </div>
-      <div className="product-card-footer">
-        <Link to={`/products/${product.slug}`} className="btn btn-outline w-full view-details-btn">
+      <div className="product-card-footer flex gap-4">
+        <Link 
+          to={`/products/${product.slug}`} 
+          className="btn btn-outline flex-grow view-details-btn"
+        >
           View Details <ArrowRight size={18} className="arrow-icon" />
         </Link>
+        {product.externalLink && product.externalLink !== "Mobile App" ? (
+          <a 
+            href={product.externalLink} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn btn-primary flex-grow visit-website-btn"
+          >
+            Visit Web
+          </a>
+        ) : (
+          <span 
+            className="btn btn-outline flex-grow app-only-btn" 
+            style={{ 
+              opacity: 0.65, 
+              cursor: 'default', 
+              backgroundColor: '#f1f5f9', 
+              borderColor: '#e2e8f0', 
+              color: '#64748b' 
+            }}
+          >
+            App Only
+          </span>
+        )}
       </div>
     </div>
   );
