@@ -45,7 +45,7 @@
 
 .premium-card {
   padding: 3rem;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
@@ -82,7 +82,7 @@
 
 .value-card {
   padding: 2rem;
-  background: white;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
@@ -101,7 +101,7 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background-color: #f8fafc;
+  background-color: var(--color-background);
   color: var(--color-primary);
   border-radius: 50%;
   margin-bottom: 1.5rem;

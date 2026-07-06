@@ -70,8 +70,8 @@
 .product-category-badge {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-secondary);
-  background-color: var(--color-background);
+  color: var(--color-primary);
+  background-color: var(--color-overlay-badge);
   padding: 0.4rem 0.75rem;
   border-radius: var(--radius-full);
   letter-spacing: 0.05em;
@@ -116,13 +116,13 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background-color: #f1f5f9;
-  color: var(--color-secondary);
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.35rem 0.6rem;
   border-radius: var(--radius-sm);
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--color-border);
 }
 
 .chip-icon {
@@ -134,14 +134,14 @@
 }
 
 .view-details-btn {
-  border-color: #e2e8f0;
-  color: var(--color-secondary);
+  border-color: var(--color-border);
+  color: var(--color-text);
 }
 
 .view-details-btn:hover {
-  background-color: var(--color-secondary);
-  border-color: var(--color-secondary);
-  color: white;
+  background-color: var(--color-text);
+  border-color: var(--color-text);
+  color: var(--color-background);
 }
 
 .arrow-icon {
