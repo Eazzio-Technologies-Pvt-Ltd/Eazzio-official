@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { useState, useEffect } from 'react';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -14,36 +13,12 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import ChatAI from './components/ChatAI';
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return 'light';
-  });
-
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      localStorage.setItem('theme', next);
-      return next;
-    });
-  };
-
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.add('light');
-      document.documentElement.classList.remove('dark');
-    }
-  }, [theme]);
-
   return (
     <HelmetProvider>
       <Router>
         <ScrollToTop />
         <div className="app-wrapper flex flex-col min-h-screen">
-          <Navbar theme={theme} toggleTheme={toggleTheme} />
+          <Navbar />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />

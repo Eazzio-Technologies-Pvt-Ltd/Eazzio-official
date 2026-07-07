@@ -183,9 +183,6 @@
   transition: background-color 0.3s, height 0.5s ease-out;
 }
 
-.dark .chart-bar {
-  background-color: var(--color-primary);
-}
 
 /* Salary Payroll Widget */
 .widget-payroll {

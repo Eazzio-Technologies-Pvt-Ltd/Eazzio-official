@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon, ChevronDown } from 'lucide-react';
-import logo from '../assets/logo.png';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import logoLight from '../assets/logo_light.png';
+import logoDark from '../assets/logo_dark.png';
 import { useState } from 'react';
 import './Navbar.css';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
@@ -15,11 +16,13 @@ const Navbar = ({ theme, toggleTheme }) => {
     return location.pathname === path ? 'active' : '';
   };
 
+  const isHomePage = location.pathname === '/';
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isHomePage ? 'home-nav' : 'inner-nav'}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
-          <img src={logo} alt="Eazzio Logo" className="logo-img" />
+          <img src={isHomePage ? logoLight : logoDark} alt="Eazzio Logo" className="logo-img" />
         </Link>
 
         <div className="nav-links-container">
@@ -67,16 +70,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             
             {/* Mobile View CTA Elements */}
             <li className="nav-item mobile-only divider"></li>
-            <li className="nav-item mobile-only">
-              <button onClick={() => { toggleTheme(); setIsOpen(false); }} className="theme-toggle-btn-mobile">
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />} {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-              </button>
-            </li>
-            <li className="nav-item mobile-only">
-              <Link to="/contact" className="nav-link-login" onClick={() => setIsOpen(false)}>
-                LOGIN
-              </Link>
-            </li>
+
             <li className="nav-item mobile-only">
               <Link to="/contact" className="btn btn-primary nav-btn" onClick={() => setIsOpen(false)}>
                 Get Started
@@ -87,18 +81,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         
         {/* Desktop View CTA and Toggles */}
         <div className="nav-cta desktop-only">
-          <button 
-            onClick={toggleTheme} 
-            className="theme-toggle-btn" 
-            aria-label="Toggle Theme"
-            id="theme-toggle-btn-desktop"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-          
-          <Link to="/contact" className="nav-login-link">
-            LOGIN
-          </Link>
+
           
           <Link to="/contact" className="btn btn-primary btn-navbar">
             Get Started

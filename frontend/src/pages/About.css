@@ -125,6 +125,10 @@
   transition: var(--transition);
 }
 
+.build-item h3 {
+  color: #ffffff !important;
+}
+
 .build-item:hover {
   background: rgba(255, 255, 255, 0.1);
   transform: translateY(-4px);

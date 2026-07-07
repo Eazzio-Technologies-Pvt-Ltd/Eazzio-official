@@ -181,9 +181,7 @@
   background-color: rgba(248, 250, 252, 0.3);
 }
 
-.dark .chat-ai-messages {
-  background-color: rgba(8, 15, 33, 0.2);
-}
+
 
 .chat-ai-message-row {
   display: flex;

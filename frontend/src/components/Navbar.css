@@ -25,10 +25,7 @@
   transition: filter 0.3s ease;
 }
 
-/* In light mode, invert white text to dark, keeping the background transparent */
-.light .logo-img {
-  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1);
-}
+
 
 .nav-links-container {
   flex-grow: 1;
@@ -123,24 +120,7 @@
   gap: 1.5rem;
 }
 
-.theme-toggle-btn {
-  background: transparent;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px;
-  border-radius: 50%;
-  transition: var(--transition);
-  border: 1px solid var(--color-border);
-}
 
-.theme-toggle-btn:hover {
-  background-color: var(--color-overlay-badge);
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-}
 
 .nav-login-link {
   font-weight: 600;
@@ -245,20 +225,7 @@
     margin: 0.5rem 0;
   }
 
-  .theme-toggle-btn-mobile {
-    background: transparent;
-    color: var(--color-text);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    padding: 0.75rem 0;
-    cursor: pointer;
-    border: none;
-    width: 100%;
-    text-align: left;
-  }
+
 
   .nav-link-login {
     display: block;
@@ -278,3 +245,23 @@
     display: none;
   }
 }
+
+/* Inner Page Navbar Styling (for pages with dark page-hero backgrounds) */
+.inner-nav .menu-icon {
+  color: #ffffff;
+}
+
+@media (min-width: 769px) {
+  .inner-nav .nav-link,
+  .inner-nav .nav-login-link,
+  .inner-nav .dropdown-arrow-icon {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .inner-nav .nav-link:hover,
+  .inner-nav .nav-link.active,
+  .inner-nav .nav-login-link:hover {
+    color: var(--color-primary);
+  }
+}
+
