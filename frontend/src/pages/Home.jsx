@@ -1,11 +1,22 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
-import { ArrowRight, ShieldCheck, Zap, TrendingUp, Users, Check, Play, Clock, PhoneCall } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Zap, TrendingUp, Users, Check, Play, Clock, PhoneCall, ChevronLeft, ChevronRight } from 'lucide-react';
+import * as Icons from 'lucide-react';
 import './Home.css';
 
 const Home = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
+  };
   return (
     <div className="home-page">
       <Helmet>
@@ -28,16 +39,8 @@ const Home = () => {
             <p className="hero-subtitle">
               Eazzio helps businesses manage accounting, payroll, telecalling and reminders from one place. Designed for growing Indian startups and SMEs.
             </p>
-            <div className="hero-cta flex items-center gap-4 flex-wrap">
-              <Link to="/contact" className="btn btn-primary btn-large">
-                Get Started <ArrowRight size={18} />
-              </Link>
-              <Link to="/contact" className="btn btn-outline btn-large flex items-center gap-2">
-                <span className="play-icon-circle"><Play size={12} fill="currentColor" /></span> Book a Demo
-              </Link>
-            </div>
             
-            <div className="hero-checks flex items-center gap-6 mt-8 flex-wrap">
+            <div className="hero-checks flex items-center gap-6 mt-6 flex-wrap">
               <div className="hero-check-item">
                 <span className="check-icon-wrapper"><Check size={14} /></span>
                 <span>Easy to Use</span>
@@ -53,65 +56,77 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Widgets */}
+          {/* Right Column: 3D Slider */}
           <div className="hero-visuals-right">
-            <div className="widgets-wrapper">
-              {/* Accounting Core Widget */}
-              <div className="widget-card widget-accounting">
-                <div className="widget-header">
-                  <span className="status-dot-gray"></span>
-                  <span className="widget-label">ACCOUNTING CORE</span>
-                </div>
-                <div className="widget-revenue-section">
-                  <p className="revenue-label">TOTAL SALES REVENUE</p>
-                  <h3>₹14,86,450</h3>
-                </div>
-                <div className="widget-bar-chart">
-                  <div className="chart-bar" style={{ '--bar-h': '30%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '45%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '35%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '55%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '40%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '70%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '60%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '80%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '50%' }}></div>
-                  <div className="chart-bar" style={{ '--bar-h': '85%' }}></div>
-                </div>
+            <div className="carousel-3d-container">
+              <button className="carousel-nav-btn prev-btn" onClick={prevSlide}>
+                <ChevronLeft size={24} />
+              </button>
+
+              <div className="carousel-3d-track">
+                {products.map((product, index) => {
+                  const isImageIcon = typeof product.icon === 'string' && (product.icon.includes('.') || product.icon.includes('/'));
+                  const IconComponent = !isImageIcon ? (Icons[product.icon] || Icons.Box) : null;
+                  
+                  let slideClass = "slide-hidden";
+                  if (index === activeIndex) {
+                    slideClass = "slide-active";
+                  } else if (index === (activeIndex - 1 + products.length) % products.length) {
+                    slideClass = "slide-prev";
+                  } else if (index === (activeIndex + 1) % products.length) {
+                    slideClass = "slide-next";
+                  }
+
+                  return (
+                    <div key={product.id} className={`iphone-mockup-slide ${slideClass}`} onClick={() => setActiveIndex(index)}>
+                      <div className="iphone-mockup">
+                        <div className="iphone-notch">
+                          <div className="iphone-speaker"></div>
+                          <div className="iphone-camera"></div>
+                        </div>
+                        <div className="iphone-screen single-product-screen">
+                          <div className="iphone-app-screenshot-placeholder"></div>
+                          
+                          <div className="iphone-single-product-content">
+                            <div className="iphone-product-icon">
+                              {isImageIcon ? (
+                                <img src={product.icon} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+                              ) : (
+                                <IconComponent size={20} />
+                              )}
+                            </div>
+                            <h3 className="iphone-product-title">{product.name}</h3>
+                            <p className="iphone-product-desc">{product.shortDescription}</p>
+                            
+                            <div className="iphone-product-features">
+                              {product.features.slice(0, 3).map((feature, idx) => (
+                                <div key={idx} className="iphone-feature-row">
+                                  <Check size={14} className="text-primary" />
+                                  <span>{feature}</span>
+                                </div>
+                              ))}
+                            </div>
+                            
+                            {product.externalLink !== "Mobile App" ? (
+                              <a href={product.externalLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary iphone-btn-full" tabIndex={index === activeIndex ? 0 : -1}>
+                                Visit Website
+                              </a>
+                            ) : (
+                              <Link to={`/products/${product.slug}`} className="btn btn-primary iphone-btn-full" tabIndex={index === activeIndex ? 0 : -1}>
+                                Visit Website
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Salary Payroll Overlay Widget */}
-              <div className="widget-card widget-payroll">
-                <div className="widget-payroll-header">
-                  <span className="widget-label">SALARY PAYROLL</span>
-                  <span className="status-dot-green"></span>
-                </div>
-                <h4 className="widget-payroll-title">June Payout Cycle</h4>
-                <p className="widget-payroll-amount">₹5,84,000</p>
-                <div className="widget-payroll-footer">
-                  <span className="employees-count">42 EMPLOYEES</span>
-                  <span className="status-processed-badge">PROCESSED</span>
-                </div>
-              </div>
-
-              {/* Dialer Outreach Overlay Widget */}
-              <div className="widget-card widget-dialer">
-                <div className="widget-dialer-header">
-                  <div className="dialer-title-group">
-                    <PhoneCall size={12} className="text-primary" />
-                    <span className="widget-label">DIALER OUTREACH</span>
-                  </div>
-                  <span className="dialer-amount">₹84,500</span>
-                </div>
-                
-                <h4 className="widget-dialer-calls">184 Calls</h4>
-                <p className="dialer-sublabel">TODAY'S VOLUME</p>
-                
-                <div className="widget-dialer-footer">
-                  <span className="dialer-stat"><Clock size={12} /> 6H 12M</span>
-                  <span className="dialer-success-rate">98% SUCCESS</span>
-                </div>
-              </div>
+              <button className="carousel-nav-btn next-btn" onClick={nextSlide}>
+                <ChevronRight size={24} />
+              </button>
             </div>
           </div>
         </div>
@@ -137,23 +152,6 @@ const Home = () => {
               <h3>SaaS</h3>
               <p>Modern Architecture</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <section className="section bg-light">
-        <div className="container">
-          <div className="section-header text-center mb-8">
-            <h2 className="title">Our Product Ecosystem</h2>
-            <p className="subtitle mx-auto">
-              Discover our range of specialized software solutions built to tackle your specific business challenges.
-            </p>
-          </div>
-          <div className="grid grid-cols-4 md-grid-cols-2 sm-grid-cols-1 gap-8 products-hover-grid">
-            {products.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
           </div>
         </div>
       </section>
@@ -208,16 +206,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section cta-section">
-        <div className="container text-center">
-          <h2 className="title text-white">Request a Product Demo</h2>
-          <p className="subtitle text-white-muted mx-auto">
-            Join hundreds of companies that trust Eazzio Technologies for their daily operations.
-          </p>
-          <Link to="/contact" className="btn btn-primary mt-4 btn-large">
-            Get Started Today <ArrowRight size={20} className="ml-2" />
-          </Link>
+      {/* Our Products Section */}
+      <section className="section bg-light" id="products">
+        <div className="container">
+          <div className="section-header text-center mb-8">
+            <h2 className="title">Explore Our Products</h2>
+            <p className="subtitle mx-auto">
+              Discover our suite of specialized software solutions built to streamline your business operations.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md-grid-cols-2 sm-grid-cols-1 gap-8">
+            {products.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </section>
     </div>

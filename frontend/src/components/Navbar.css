@@ -1,14 +1,16 @@
 .navbar {
-  background-color: transparent !important;
+  background-color: var(--color-secondary) !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   border-bottom: none !important;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.5rem 0 0.75rem 0;
+  height: 64px;
+  padding: 0.5rem 0;
+  box-sizing: border-box;
 }
 
 .navbar-container {
@@ -16,12 +18,21 @@
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
+  height: 100%;
+}
+
+.navbar-logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
-  height: 48px;
+  height: 100%;
+  max-height: 100%;
   width: auto;
   display: block;
+  object-fit: contain;
   transition: filter 0.3s ease;
 }
 
@@ -46,7 +57,8 @@
 
 .nav-link {
   font-weight: 500;
-  color: var(--color-text-muted); /* Camouflage text color with theme */
+  color: var(--color-text-muted);
+  /* Camouflage text color with theme */
   transition: var(--transition);
   font-size: 0.875rem;
   padding: 0.5rem 0;
@@ -55,7 +67,8 @@
   letter-spacing: 0.01em;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
   color: var(--color-primary);
 }
 
@@ -92,6 +105,7 @@
     opacity: 0;
     transform: translateX(-50%) translateY(5px);
   }
+
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(10px);
@@ -155,6 +169,7 @@
   .nav-links-container {
     margin-right: 1rem;
   }
+
   .nav-menu {
     gap: 1.5rem;
   }
@@ -191,7 +206,7 @@
     width: 100%;
     text-align: left;
   }
-  
+
   .nav-link {
     width: 100%;
     padding: 0.75rem 0;
@@ -206,6 +221,7 @@
     border-radius: 0;
     margin-left: 1rem;
     padding: 0;
+    height: 72px;
     min-width: 0;
     background: transparent;
     animation: none;
@@ -218,7 +234,7 @@
   .mobile-only {
     display: block;
   }
-  
+
   .mobile-only.divider {
     height: 1px;
     background-color: var(--color-border);
@@ -240,7 +256,7 @@
     text-align: center;
     margin-top: 0.5rem;
   }
-  
+
   .desktop-only {
     display: none;
   }
@@ -252,6 +268,7 @@
 }
 
 @media (min-width: 769px) {
+
   .inner-nav .nav-link,
   .inner-nav .nav-login-link,
   .inner-nav .dropdown-arrow-icon {
@@ -264,4 +281,3 @@
     color: var(--color-primary);
   }
 }
-

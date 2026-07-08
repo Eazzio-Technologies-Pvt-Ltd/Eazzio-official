@@ -13,7 +13,8 @@ const ProductDetail = () => {
     return <Navigate to="/products" />;
   }
   
-  const IconComponent = Icons[product.icon] || Icons.Box;
+  const isImageIcon = typeof product.icon === 'string' && (product.icon.includes('.') || product.icon.includes('/'));
+  const IconComponent = !isImageIcon ? (Icons[product.icon] || Icons.Box) : null;
 
   return (
     <div className="product-detail-page">
@@ -25,7 +26,11 @@ const ProductDetail = () => {
       <header className="page-hero detail-hero">
         <div className="container text-center">
           <div className="detail-icon-wrapper mx-auto mb-6">
-             <IconComponent size={48} className="text-white" />
+             {isImageIcon ? (
+               <img src={product.icon} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+             ) : (
+               <IconComponent size={48} className="text-white" />
+             )}
           </div>
           <h1 className="hero-title text-white">{product.name}</h1>
           <p className="hero-subtitle text-white-muted mx-auto">

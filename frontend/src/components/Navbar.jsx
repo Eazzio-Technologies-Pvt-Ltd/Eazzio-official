@@ -19,10 +19,10 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <nav className={`navbar ${isHomePage ? 'home-nav' : 'inner-nav'}`}>
+    <nav className="navbar inner-nav">
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
-          <img src={isHomePage ? logoLight : logoDark} alt="Eazzio Logo" className="logo-img" />
+          <img src={logoDark} alt="Eazzio Logo" className="logo-img" />
         </Link>
 
         <div className="nav-links-container">
@@ -54,6 +54,9 @@ const Navbar = () => {
                   <Link to="/products/eazzio-reminders" className="dropdown-item" onClick={() => setIsOpen(false)}>
                     Eazzio Reminders
                   </Link>
+                  <Link to="/products/eazzio-whats-bulk" className="dropdown-item" onClick={() => setIsOpen(false)}>
+                    Eazzio Whats Bulk
+                  </Link>
                 </div>
               )}
             </li>
@@ -72,20 +75,18 @@ const Navbar = () => {
             <li className="nav-item mobile-only divider"></li>
 
             <li className="nav-item mobile-only">
-              <Link to="/contact" className="btn btn-primary nav-btn" onClick={() => setIsOpen(false)}>
-                Get Started
-              </Link>
+              <a href="tel:+918083681114" className="btn btn-primary nav-btn" onClick={() => setIsOpen(false)}>
+                Call Me
+              </a>
             </li>
           </ul>
         </div>
         
         {/* Desktop View CTA and Toggles */}
         <div className="nav-cta desktop-only">
-
-          
-          <Link to="/contact" className="btn btn-primary btn-navbar">
-            Get Started
-          </Link>
+          <a href="tel:+918083681114" className="btn btn-primary btn-navbar">
+            Call Me
+          </a>
         </div>
 
         <div className="menu-icon" onClick={toggleMenu}>

@@ -1,3 +1,8 @@
+import booksIcon from '../assets/eazzio-books-icon.jpg';
+import telecallerIcon from '../assets/eazzio-telecaller-icon.jpg';
+import payrollIcon from '../assets/eazzio-payroll-icon.jpg';
+import remindersIcon from '../assets/eazzio-reminders-icon.jpg';
+
 export const products = [
   {
     id: 'eazzio-payroll',
@@ -6,7 +11,7 @@ export const products = [
     externalLink: 'https://payroll.eazzio.com',
     shortDescription: 'A Field Force Management System with payroll generation features.',
     fullDescription: 'Eazzio Payroll helps companies manage field employees, attendance, task tracking, live location workflows, salary calculation, payroll reports, and employee performance in one centralized platform.',
-    icon: 'Users',
+    icon: payrollIcon,
     features: [
       'Field Employee Management',
       'Live Location Workflows',
@@ -34,7 +39,7 @@ export const products = [
     externalLink: 'https://books.eazzio.com',
     shortDescription: 'A complete business accounting software for invoices, expenses, and GST reports.',
     fullDescription: 'Eazzio Books is a comprehensive business accounting software designed for managing invoices, quotes, customers, vendors, expenses, payments, GST-ready reports, and total financial management.',
-    icon: 'BookOpen',
+    icon: booksIcon,
     features: [
       'Invoices & Quotes Generation',
       'Customer & Vendor Management',
@@ -62,7 +67,7 @@ export const products = [
     externalLink: 'Mobile App',
     shortDescription: 'A reminder and task management platform for businesses to manage follow-ups.',
     fullDescription: 'Eazzio Reminders is a dedicated task management platform for businesses to seamlessly manage follow-ups, strict deadlines, team alerts, scheduled reminders, and boost overall team productivity.',
-    icon: 'BellRing',
+    icon: remindersIcon,
     features: [
       'Follow-up Management',
       'Deadline Tracking',
@@ -90,7 +95,7 @@ export const products = [
     externalLink: 'https://telecaller.eazzio.com',
     shortDescription: 'A telecaller management platform for lead tracking and sales calling workflows.',
     fullDescription: 'Eazzio Telecaller is an advanced telecaller management platform built for comprehensive lead tracking, call follow-ups, robust customer communication, tracking team performance, and managing sales/support calling workflows.',
-    icon: 'PhoneCall',
+    icon: telecallerIcon,
     features: [
       'Lead Tracking & Management',
       'Call Follow-ups',
@@ -108,6 +113,34 @@ export const products = [
       'Sales development teams',
       'Customer support centers',
       'Market research agencies'
+    ],
+    ctaText: 'Request Demo'
+  },
+  {
+    id: 'eazzio-whats-bulk',
+    name: 'Eazzio Whats Bulk',
+    slug: 'eazzio-whats-bulk',
+    externalLink: 'https://whatsbulk.eazzio.com',
+    shortDescription: 'A bulk messaging platform to send WhatsApp messages at scale.',
+    fullDescription: 'Eazzio Whats Bulk is a powerful WhatsApp messaging platform that allows businesses to send bulk promotional and transactional messages efficiently to their customer base.',
+    icon: 'MessageSquare',
+    features: [
+      'Bulk WhatsApp Messaging',
+      'Campaign Management',
+      'Automated Replies',
+      'Contact Management',
+      'Delivery Analytics'
+    ],
+    benefits: [
+      'High open and read rates',
+      'Reach thousands of customers instantly',
+      'Cost-effective marketing channel',
+      'Personalized message templates'
+    ],
+    useCases: [
+      'Marketing promotions',
+      'Event reminders and invites',
+      'Transactional alerts'
     ],
     ctaText: 'Request Demo'
   }

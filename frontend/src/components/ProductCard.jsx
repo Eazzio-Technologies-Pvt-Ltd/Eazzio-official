@@ -4,13 +4,18 @@ import * as Icons from 'lucide-react';
 import './ProductCard.css';
 
 const ProductCard = ({ product }) => {
-  const IconComponent = Icons[product.icon] || Icons.Box;
+  const isImageIcon = typeof product.icon === 'string' && (product.icon.includes('.') || product.icon.includes('/'));
+  const IconComponent = !isImageIcon ? (Icons[product.icon] || Icons.Box) : null;
 
   return (
     <div className="card product-card">
       <div className="product-card-header">
         <div className="product-icon-wrapper">
-          <IconComponent size={28} className="product-icon" />
+          {isImageIcon ? (
+            <img src={product.icon} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+          ) : (
+            <IconComponent size={28} className="product-icon" />
+          )}
         </div>
       </div>
       <div className="product-card-body">

@@ -6,8 +6,267 @@
   background-color: #f1f5f9;
 }
 
+
+
+/* 3D Coverflow Carousel Styles */
+.carousel-3d-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  padding: 0 30px;
+}
+
+.carousel-3d-track {
+  position: relative;
+  width: 250px; /* Increased back for better visibility */
+  height: 470px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.iphone-mockup-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+/* Slide States */
+.slide-active {
+  z-index: 10;
+  transform: translateX(0) scale(1) translateZ(0);
+  opacity: 1;
+}
+.slide-active .iphone-mockup {
+  box-shadow: 0 30px 60px rgba(8, 21, 56, 0.3), 0 0 0 3px var(--color-primary), inset 0 0 0 6px #1a1a1a;
+}
+.slide-active .iphone-screen {
+  pointer-events: auto;
+}
+
+.slide-prev {
+  z-index: 5;
+  transform: translateX(-110%) scale(0.85) translateZ(-100px);
+  opacity: 0.7;
+  filter: grayscale(40%);
+}
+.slide-prev:hover {
+  opacity: 0.9;
+  filter: grayscale(10%);
+}
+.slide-prev .iphone-screen {
+  pointer-events: none;
+}
+
+.slide-next {
+  z-index: 5;
+  transform: translateX(110%) scale(0.85) translateZ(-100px);
+  opacity: 0.7;
+  filter: grayscale(40%);
+}
+.slide-next:hover {
+  opacity: 0.9;
+  filter: grayscale(10%);
+}
+.slide-next .iphone-screen {
+  pointer-events: none;
+}
+
+.slide-hidden {
+  z-index: 1;
+  transform: translateX(0) scale(0.5) translateZ(-300px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.iphone-mockup {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(8, 21, 56, 0.15), inset 0 0 0 6px #1a1a1a;
+  padding: 6px;
+  box-sizing: border-box;
+  transition: all 0.5s ease;
+}
+
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.iphone-notch {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 20px;
+  background-color: #1a1a1a;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.iphone-speaker {
+  width: 28px;
+  height: 4px;
+  background-color: #333;
+  border-radius: 4px;
+}
+
+.iphone-camera {
+  width: 8px;
+  height: 8px;
+  background-color: #111;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  background: var(--color-surface);
+  border-radius: 30px;
+  overflow-y: auto; /* Enables scrolling inside the screen if content is long */
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.iphone-screen::-webkit-scrollbar {
+  display: none;
+}
+
+/* Interior Screen Details */
+.iphone-app-screenshot-placeholder {
+  flex: none;
+  background: linear-gradient(135deg, rgba(0, 215, 144, 0.15), rgba(8, 21, 56, 0.05));
+  width: 100%;
+  min-height: 90px; /* Highly reduced */
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iphone-app-screenshot-placeholder::after {
+  content: 'App Interface';
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.iphone-single-product-content {
+  padding: 0.75rem;
+  background-color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  flex-grow: 1; /* Allows it to expand to fill remaining space */
+}
+
+.iphone-product-icon {
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-overlay-badge);
+  color: var(--color-primary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.1rem;
+}
+
+.iphone-product-title {
+  font-size: 1rem;
+  color: var(--color-secondary);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  margin: 0;
+}
+
+.iphone-product-desc {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+  margin: 0 0 0.25rem 0;
+}
+
+.iphone-product-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.iphone-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.65rem;
+  color: var(--color-text);
+}
+
+.iphone-btn-full {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 0.5rem !important;
+  font-size: 0.75rem !important;
+  margin-top: auto;
+}
+
 .hero {
-  padding: 8rem 0 5rem 0;
+  padding: 6.5rem 0 5rem 0; /* Increased to push content below the fixed navbar */
   background-color: var(--color-background);
   position: relative;
   overflow: hidden;
@@ -16,8 +275,8 @@
 
 .hero-grid-container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 4rem;
+  grid-template-columns: 0.9fr 1.1fr; /* Shift ratio to give slider more space */
+  gap: 6rem; /* Increased gap to ensure separation between text and slider */
   align-items: center;
   position: relative;
   z-index: 1;
@@ -45,20 +304,27 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--color-text);
 }
 
+.hero-content-left .hero-title {
+  max-width: 500px; /* Constrain text width so it doesn't stretch into the gap */
+}
+
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 2.5rem;
   color: var(--color-text-muted);
   line-height: 1.6;
-  max-width: 580px;
+}
+
+.hero-content-left .hero-subtitle {
+  max-width: 460px; /* Adjusted to wrap nicely on the narrower left column */
 }
 
 .play-icon-circle {
