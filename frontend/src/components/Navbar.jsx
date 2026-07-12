@@ -2,13 +2,26 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logoLight from '../assets/logo_light.png';
 import logoDark from '../assets/logo_dark.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Navbar.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -19,7 +32,7 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <nav className="navbar inner-nav">
+    <nav className={`navbar inner-nav ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="container navbar-container">
         <Link to="/" className="navbar-logo" onClick={() => setIsOpen(false)}>
           <img src={logoDark} alt="Eazzio Logo" className="logo-img" />

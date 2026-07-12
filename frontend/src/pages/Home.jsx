@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import ProductCard from '../components/ProductCard';
 import { ArrowRight, ShieldCheck, Zap, TrendingUp, Users, Check, Play, Clock, PhoneCall, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as Icons from 'lucide-react';
+import Reveal from '../motion/Reveal';
+import Stagger from '../motion/Stagger';
+import CountUp from '../components/CountUp';
 import './Home.css';
 
 const Home = () => {
@@ -17,6 +20,7 @@ const Home = () => {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
   };
+  
   return (
     <div className="home-page">
       <Helmet>
@@ -25,39 +29,46 @@ const Home = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <header className="hero section grid-background">
+      <header className="hero section">
         <div className="container hero-grid-container">
-          {/* Left Column: Hero Content */}
+          {/* Left Column: Hero Content Split into Layers */}
           <div className="hero-content-left">
-            <div className="trust-badge">
-              <Zap size={14} className="text-primary" />
-              <span>ONE UNIFIED PLATFORM</span>
-            </div>
-            <h1 className="hero-title">
-              Run Your Business Smarter with One Platform.
-            </h1>
-            <p className="hero-subtitle">
-              Eazzio helps businesses manage accounting, payroll, telecalling and reminders from one place. Designed for growing Indian startups and SMEs.
-            </p>
-            
-            <div className="hero-checks flex items-center gap-6 mt-6 flex-wrap">
-              <div className="hero-check-item">
-                <span className="check-icon-wrapper"><Check size={14} /></span>
-                <span>Easy to Use</span>
+            <Reveal direction="up" delay={0.05} duration={0.8} viewport={{ once: true }}>
+              <div className="trust-badge">
+                <Zap size={14} className="text-primary" />
+                <span>ONE UNIFIED PLATFORM</span>
               </div>
-              <div className="hero-check-item">
-                <span className="check-icon-wrapper"><Check size={14} /></span>
-                <span>Secure Data</span>
+            </Reveal>
+            <Reveal direction="up" delay={0.15} duration={0.8} viewport={{ once: true }}>
+              <h1 className="hero-title">
+                Run Your Business Smarter with One Platform.
+              </h1>
+            </Reveal>
+            <Reveal direction="up" delay={0.25} duration={0.8} viewport={{ once: true }}>
+              <p className="hero-subtitle">
+                Eazzio helps businesses manage accounting, payroll, telecalling and reminders from one place. Designed for growing Indian startups and SMEs.
+              </p>
+            </Reveal>
+            <Reveal direction="up" delay={0.35} duration={0.8} viewport={{ once: true }}>
+              <div className="hero-checks flex items-center gap-6 mt-6 flex-wrap">
+                <div className="hero-check-item">
+                  <span className="check-icon-wrapper"><Check size={14} /></span>
+                  <span>Easy to Use</span>
+                </div>
+                <div className="hero-check-item">
+                  <span className="check-icon-wrapper"><Check size={14} /></span>
+                  <span>Secure Data</span>
+                </div>
+                <div className="hero-check-item">
+                  <span className="check-icon-wrapper"><Check size={14} /></span>
+                  <span>Made for Indian Businesses</span>
+                </div>
               </div>
-              <div className="hero-check-item">
-                <span className="check-icon-wrapper"><Check size={14} /></span>
-                <span>Made for Indian Businesses</span>
-              </div>
-            </div>
+            </Reveal>
           </div>
 
-          {/* Right Column: 3D Slider */}
-          <div className="hero-visuals-right">
+          {/* Right Column: 3D Slider (scales from 99%) */}
+          <Reveal direction="scale" scale={0.99} duration={0.85} className="hero-visuals-right" viewport={{ once: true }}>
             <div className="carousel-3d-container">
               <button className="carousel-nav-btn prev-btn" onClick={prevSlide}>
                 <ChevronLeft size={24} />
@@ -128,16 +139,16 @@ const Home = () => {
                 <ChevronRight size={24} />
               </button>
             </div>
-          </div>
+          </Reveal>
         </div>
       </header>
 
       {/* Stats Section */}
       <section className="stats-section bg-secondary">
         <div className="container">
-          <div className="stats-grid">
+          <Reveal direction="fade" duration={0.75} viewport={{ once: true, margin: "-5%" }} className="stats-grid">
             <div className="stat-card">
-              <h3>4+</h3>
+              <h3><CountUp end={4} />+</h3>
               <p>Software Products</p>
             </div>
             <div className="stat-card">
@@ -152,21 +163,21 @@ const Home = () => {
               <h3>SaaS</h3>
               <p>Modern Architecture</p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="section">
         <div className="container">
-          <div className="section-header text-center mb-8">
+          <Reveal direction="up" duration={0.8} viewport={{ once: true, margin: "-12%" }} className="section-header text-center mb-8">
             <h2 className="title">Built for Growing Businesses</h2>
             <p className="subtitle mx-auto">
               We build software that works for you, not the other way around. Why Choose Eazzio Technologies?
             </p>
-          </div>
+          </Reveal>
           <div className="grid grid-cols-2 sm-grid-cols-1 gap-8 features-grid">
-            <div className="feature-card">
+            <Reveal direction="left" distance={16} duration={0.85} viewport={{ once: true, margin: "-10%" }} className="feature-card">
               <div className="feature-icon-wrapper">
                 <Zap size={28} />
               </div>
@@ -174,8 +185,8 @@ const Home = () => {
                 <h3>Lightning Fast</h3>
                 <p>Optimized for speed and performance, ensuring a smooth user experience without interruptions.</p>
               </div>
-            </div>
-            <div className="feature-card">
+            </Reveal>
+            <Reveal direction="right" distance={16} duration={0.85} viewport={{ once: true, margin: "-10%" }} className="feature-card">
               <div className="feature-icon-wrapper">
                 <ShieldCheck size={28} />
               </div>
@@ -183,8 +194,8 @@ const Home = () => {
                 <h3>Secure & Reliable</h3>
                 <p>Enterprise-grade security to keep your business data safe, encrypted, and strictly compliant.</p>
               </div>
-            </div>
-            <div className="feature-card">
+            </Reveal>
+            <Reveal direction="left" distance={16} duration={0.85} viewport={{ once: true, margin: "-10%" }} className="feature-card">
               <div className="feature-icon-wrapper">
                 <Users size={28} />
               </div>
@@ -192,8 +203,8 @@ const Home = () => {
                 <h3>User-Centric Design</h3>
                 <p>Intuitive interfaces that require minimal training, enabling your team to be productive instantly.</p>
               </div>
-            </div>
-            <div className="feature-card">
+            </Reveal>
+            <Reveal direction="right" distance={16} duration={0.85} viewport={{ once: true, margin: "-10%" }} className="feature-card">
               <div className="feature-icon-wrapper">
                 <TrendingUp size={28} />
               </div>
@@ -201,7 +212,7 @@ const Home = () => {
                 <h3>Scalable Solutions</h3>
                 <p>Our software grows effortlessly with your business, handling increased demand and complex workflows.</p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -209,17 +220,20 @@ const Home = () => {
       {/* Our Products Section */}
       <section className="section bg-light" id="products">
         <div className="container">
-          <div className="section-header text-center mb-8">
+          <Reveal direction="up" duration={0.82} viewport={{ once: true, margin: "-8%" }} className="section-header text-center mb-8">
             <h2 className="title">Explore Our Products</h2>
             <p className="subtitle mx-auto">
               Discover our suite of specialized software solutions built to streamline your business operations.
             </p>
-          </div>
-          <div className="grid grid-cols-2 md-grid-cols-2 sm-grid-cols-1 gap-8">
+          </Reveal>
+          
+          <Stagger staggerChildren={0.06} className="grid grid-cols-2 md-grid-cols-2 sm-grid-cols-1 gap-8">
             {products.map(product => (
-              <ProductCard key={product.id} product={product} />
+              <Reveal key={product.id} direction="up" distance={8} duration={0.85} viewport={{ once: true, margin: "-6%" }}>
+                <ProductCard product={product} />
+              </Reveal>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
     </div>
@@ -227,3 +241,4 @@ const Home = () => {
 };
 
 export default Home;
+
