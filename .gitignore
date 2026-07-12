@@ -29,3 +29,7 @@ yarn-error.log*
 *.sln
 *.sw?
 .DS_Store
+
+# upgrade files 
+InteractiveSilkBackground/
+InteractiveBackground/
