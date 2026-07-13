@@ -12,6 +12,7 @@ import TelecallerDashboard from '../components/TelecallerDashboard';
 import PayrollDashboard from '../components/PayrollDashboard';
 import BooksDashboard from '../components/BooksDashboard';
 import WhatsBulkDashboard from '../components/WhatsBulkDashboard';
+import RemindersDashboard from '../components/RemindersDashboard';
 import './Home.css';
 
 const Home = () => {
@@ -24,7 +25,7 @@ const Home = () => {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + products.length) % products.length);
   };
-  
+
   return (
     <div className="home-page">
       <Helmet>
@@ -82,7 +83,7 @@ const Home = () => {
                 {products.map((product, index) => {
                   const isImageIcon = typeof product.icon === 'string' && (product.icon.includes('.') || product.icon.includes('/'));
                   const IconComponent = !isImageIcon ? (Icons[product.icon] || Icons.Box) : null;
-                  
+
                   let slideClass = "slide-hidden";
                   if (index === activeIndex) {
                     slideClass = "slide-active";
@@ -116,12 +117,16 @@ const Home = () => {
                             <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
                               <WhatsBulkDashboard />
                             </div>
+                          ) : product.id === 'eazzio-reminders' ? (
+                            <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
+                              <RemindersDashboard />
+                            </div>
                           ) : (
                             <div className="iphone-app-screenshot-placeholder"></div>
                           )}
-                          
-                          <div className="iphone-single-product-content" style={['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk'].includes(product.id) ? { flexGrow: 0, paddingTop: '0.25rem' } : {}}>
-                            {!['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk'].includes(product.id) && (
+
+                          <div className="iphone-single-product-content" style={['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk', 'eazzio-reminders'].includes(product.id) ? { flexGrow: 0, paddingTop: '0.25rem' } : {}}>
+                            {!['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk', 'eazzio-reminders'].includes(product.id) && (
                               <>
                                 <div className="iphone-product-icon">
                                   {isImageIcon ? (
@@ -132,7 +137,7 @@ const Home = () => {
                                 </div>
                                 <h3 className="iphone-product-title">{product.name}</h3>
                                 <p className="iphone-product-desc">{product.shortDescription}</p>
-                                
+
                                 <div className="iphone-product-features">
                                   {product.features.slice(0, 3).map((feature, idx) => (
                                     <div key={idx} className="iphone-feature-row">
@@ -143,7 +148,7 @@ const Home = () => {
                                 </div>
                               </>
                             )}
-                            
+
                             {product.externalLink !== "Mobile App" ? (
                               <a href={product.externalLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary iphone-btn-full" tabIndex={index === activeIndex ? 0 : -1}>
                                 Visit Website
@@ -252,7 +257,7 @@ const Home = () => {
               Discover our suite of specialized software solutions built to streamline your business operations.
             </p>
           </Reveal>
-          
+
           <Stagger staggerChildren={0.06} className="grid grid-cols-2 md-grid-cols-2 sm-grid-cols-1 gap-8">
             {products.map(product => (
               <Reveal key={product.id} direction="up" distance={8} duration={0.85} viewport={{ once: true, margin: "-6%" }}>

@@ -79,6 +79,11 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
+              <Link to="/team" className={`nav-link ${isActive('/team')}`} onClick={() => setIsOpen(false)}>
+                Team
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/contact" className={`nav-link ${isActive('/contact')}`} onClick={() => setIsOpen(false)}>
                 Contact
               </Link>

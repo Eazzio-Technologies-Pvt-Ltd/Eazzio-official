@@ -1,0 +1,146 @@
+.rem-dashboard {
+  background-color: #f8f9fc;
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 10px 10px 10px; /* Safe area for iPhone notch */
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.rem-header {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.rem-logo {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+.rem-logo-eazzio { color: #1e1b4b; }
+.rem-logo-triangle { color: #14b8a6; font-size: 10px; margin: 0 1px; }
+.rem-logo-reminder { color: #14b8a6; font-weight: 300; margin-left: 4px; letter-spacing: 0.05em; }
+
+.rem-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Grid 2 */
+.rem-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.rem-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+.rem-card-pink { border: 1px solid #fbcfe8; }
+.rem-card-purple { border: 1px solid #e9d5ff; }
+
+.rem-icon-bg {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rem-icon-pink { background-color: #fdf2f8; color: #db2777; }
+.rem-icon-purple { background-color: #f5f3ff; color: #7c3aed; }
+
+.rem-card-text {
+  display: flex;
+  flex-direction: column;
+}
+.rem-val { font-size: 14px; font-weight: 700; color: #000; line-height: 1; }
+.rem-label { font-size: 6px; color: #64748b; line-height: 1.2; margin-top: 2px; }
+
+/* Grid 3 */
+.rem-section-title {
+  font-size: 9px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.rem-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+.rem-card-small {
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rem-card-orange { border: 1px solid #fde68a; }
+.rem-card-teal { border: 1px solid #99f6e4; }
+.rem-card-purple-light { border: 1px solid #e9d5ff; }
+.rem-card-green { border: 1px solid #bbf7d0; }
+.rem-card-teal-alt { border: 1px solid #a7f3d0; }
+.rem-card-blue { border: 1px solid #bfdbfe; }
+
+.rem-icon-sm {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rem-icon-orange { background-color: #fffbeb; color: #d97706; }
+.rem-icon-teal { background-color: #f0fdfa; color: #0d9488; }
+.rem-icon-purple-light { background-color: #faf5ff; color: #9333ea; }
+.rem-icon-green { background-color: #f0fdf4; color: #16a34a; }
+.rem-icon-teal-alt { background-color: #f0fdfa; color: #0f766e; }
+.rem-icon-blue { background-color: #eff6ff; color: #2563eb; }
+
+.rem-val-lg {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+.rem-label-sm {
+  font-size: 6px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.rem-bottom-spacer {
+  height: 40px;
+}
+
+/* FAB */
+.rem-fab {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background-color: #7c3aed;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(124, 58, 237, 0.4);
+  z-index: 10;
+}

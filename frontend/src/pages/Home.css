@@ -88,17 +88,7 @@
   pointer-events: none;
 }
 
-.iphone-mockup {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(8, 21, 56, 0.15), inset 0 0 0 6px #1a1a1a;
-  padding: 6px;
-  box-sizing: border-box;
-  transition: all 0.5s ease;
-}
+/* iPhone Mockup classes moved to MobileMockup.css */
 
 .carousel-nav-btn {
   position: absolute;
@@ -141,56 +131,6 @@
 
 .next-btn {
   right: 0;
-}
-
-.iphone-notch {
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 20px;
-  background-color: #1a1a1a;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-}
-
-.iphone-speaker {
-  width: 28px;
-  height: 4px;
-  background-color: #333;
-  border-radius: 4px;
-}
-
-.iphone-camera {
-  width: 8px;
-  height: 8px;
-  background-color: #111;
-  border-radius: 50%;
-  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.2);
-}
-
-.iphone-screen {
-  width: 100%;
-  height: 100%;
-  background: var(--color-surface);
-  border-radius: 30px;
-  overflow-y: auto; /* Enables scrolling inside the screen if content is long */
-  overflow-x: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.iphone-screen::-webkit-scrollbar {
-  display: none;
 }
 
 /* Interior Screen Details */

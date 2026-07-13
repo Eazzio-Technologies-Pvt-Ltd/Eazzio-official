@@ -12,6 +12,18 @@
 
 /* detail-hero styles removed - handled by page-hero in index.css */
 
+.text-left {
+  text-align: left !important;
+}
+
+.detail-mockup-wrapper {
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+  box-shadow: 0 30px 60px rgba(8, 21, 56, 0.4);
+  border-radius: 30px;
+}
+
 .detail-icon-wrapper {
   background: rgba(255, 255, 255, 0.1);
   width: 96px;
@@ -117,9 +129,168 @@
   color: var(--color-text);
 }
 
+/* Premium Hero Redesign */
+.premium-hero {
+  padding: 8rem 0 6rem 0;
+  position: relative;
+  overflow: hidden;
+  background-color: #0a1229; /* Explicit navy background */
+}
+
+/* Background effects */
+.hero-bg-glow {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(0, 215, 144, 0.08) 0%, rgba(10, 18, 41, 0) 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-bg-glow-2 {
+  top: 30%;
+  left: 60%;
+  background: radial-gradient(circle, rgba(0, 150, 255, 0.05) 0%, rgba(10, 18, 41, 0) 70%);
+}
+
+.hero-dot-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Typography */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(0, 215, 144, 0.1);
+  border: 1px solid rgba(0, 215, 144, 0.2);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-primary);
+}
+
+.premium-title {
+  font-size: 3.8rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+}
+
+.premium-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* Icon Block */
+.premium-icon-wrapper {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Buttons */
+.hero-actions {
+  align-items: center;
+}
+.btn-pill {
+  border-radius: 50px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 24px rgba(0, 215, 144, 0.4);
+  transform: translateY(-2px);
+}
+.btn-hover-tint:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px);
+}
+.btn-icon-shift {
+  transition: transform 0.3s ease;
+}
+.btn-glow:hover .btn-icon-shift {
+  transform: translateX(4px);
+}
+
+/* Phone Mockup */
+.premium-mockup {
+  transform: perspective(1000px) rotateY(-8deg) rotateZ(3deg);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.premium-mockup:hover {
+  transform: perspective(1000px) rotateY(-4deg) rotateZ(1deg) translateY(-10px);
+}
+.mockup-glow-behind {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 215, 144, 0.2) 0%, rgba(0, 0, 0, 0) 65%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
 @media (max-width: 992px) {
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+  .page-hero .hero-grid-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 4rem;
+  }
+  .page-hero .hero-content-left {
+    align-items: center;
+    text-align: center;
+  }
+  .page-hero .text-left {
+    text-align: center !important;
+  }
+  .page-hero .hero-title {
+    font-size: 2.8rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .page-hero .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .premium-mockup {
+    transform: perspective(1000px) rotateY(0deg) rotateZ(0deg);
+  }
+  .premium-mockup:hover {
+    transform: translateY(-5px);
   }
 }
 

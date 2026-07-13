@@ -12,6 +12,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ChatAI from './components/ChatAI';
 import MotionProvider from './motion/MotionProvider';
+import Team from './pages/Team';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/products" element={<Products />} />
 
                 <Route path="/products/:slug" element={<ProductDetail />} />
+                <Route path="/team" element={<Team />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
