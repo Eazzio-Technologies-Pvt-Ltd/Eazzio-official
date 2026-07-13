@@ -1,0 +1,373 @@
+.pr-dashboard {
+  background-color: #f8fafc;
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 8px 10px 8px;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.pr-header h2 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0d9488;
+  margin: 0;
+}
+
+.pr-bell {
+  position: relative;
+  color: #334155;
+}
+
+.pr-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 6px;
+  font-weight: 800;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+}
+
+.pr-hero-card {
+  background-color: #0d9488;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  box-shadow: 0 4px 6px rgba(13, 148, 136, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Greeting Section */
+.pr-greeting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 4px 0 4px;
+}
+.pr-greeting-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 2px 0;
+}
+.pr-greeting-date {
+  font-size: 8px;
+  color: #475569;
+  margin: 0;
+}
+.pr-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e2e8f0;
+}
+.pr-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Swipe Button */
+.pr-swipe-btn {
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 100px;
+  padding: 2px 8px 2px 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  margin: 2px 0;
+}
+.pr-swipe-circle {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pr-swipe-text {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Three Cards */
+.pr-stats-row {
+  display: flex;
+  gap: 4px;
+}
+.pr-stat-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 8px;
+  padding: 6px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+}
+.pr-stat-title {
+  font-size: 6px;
+  font-weight: 700;
+  color: #475569;
+  text-align: center;
+  line-height: 1.2;
+}
+.pr-stat-val {
+  font-size: 8px;
+  font-weight: 700;
+}
+.pr-stat-green { color: #10b981; }
+.pr-stat-red { color: #ef4444; }
+.pr-stat-teal { color: #0d9488; }
+.pr-stat-sub {
+  font-size: 6px;
+  color: #94a3b8;
+}
+
+/* Expanded Hero Card Modifications */
+.pr-hero-expanded {
+  padding: 10px;
+  gap: 6px;
+}
+.pr-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pr-hero-working {
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.8);
+}
+.pr-hero-date-badge {
+  font-size: 7px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 2px 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pr-hero-timer {
+  font-size: 22px;
+  font-weight: 800;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.02em;
+}
+.pr-hero-worked-today {
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(255,255,255,0.8);
+}
+.pr-hero-divider {
+  height: 1px;
+  background-color: rgba(255,255,255,0.15);
+  margin: 1px 0;
+}
+.pr-hero-row-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pr-hero-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+}
+.pr-hero-row-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pr-hero-icon {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pr-hero-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+.pr-hero-value {
+  font-weight: 700;
+}
+
+.pr-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr-section-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.pr-section-icon {
+  width: 18px;
+  height: 18px;
+  background-color: #e2e8f0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d9488;
+}
+
+.pr-section-header h3 {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.pr-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #f1f5f9;
+}
+
+.pr-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pr-timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.pr-timeline-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pr-icon-in {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.pr-icon-out {
+  background-color: #ffe4e6;
+  color: #e11d48;
+}
+
+.pr-timeline-content {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pr-timeline-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.pr-timeline-time {
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.pr-timeline-line {
+  position: absolute;
+  left: 9px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #e2e8f0;
+  z-index: 1;
+}
+
+.pr-break-badge {
+  background-color: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #d97706;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: center;
+  z-index: 2;
+  margin: -4px 0;
+  box-shadow: 0 2px 4px rgba(253, 230, 138, 0.4);
+}
+
+.pr-odometer-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pr-odometer-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #0d9488;
+  margin: 0;
+}
+
+.pr-odometer-desc {
+  font-size: 10px;
+  color: #475569;
+  margin: 0;
+}
+
+.pr-odometer-btn {
+  background-color: #0d9488;
+  height: 24px;
+  border-radius: 6px;
+  margin-top: 4px;
+}

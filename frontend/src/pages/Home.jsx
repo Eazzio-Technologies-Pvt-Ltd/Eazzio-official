@@ -8,6 +8,10 @@ import * as Icons from 'lucide-react';
 import Reveal from '../motion/Reveal';
 import Stagger from '../motion/Stagger';
 import CountUp from '../components/CountUp';
+import TelecallerDashboard from '../components/TelecallerDashboard';
+import PayrollDashboard from '../components/PayrollDashboard';
+import BooksDashboard from '../components/BooksDashboard';
+import WhatsBulkDashboard from '../components/WhatsBulkDashboard';
 import './Home.css';
 
 const Home = () => {
@@ -96,27 +100,49 @@ const Home = () => {
                           <div className="iphone-camera"></div>
                         </div>
                         <div className="iphone-screen single-product-screen">
-                          <div className="iphone-app-screenshot-placeholder"></div>
+                          {product.id === 'eazzio-telecaller' ? (
+                            <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
+                              <TelecallerDashboard />
+                            </div>
+                          ) : product.id === 'eazzio-payroll' ? (
+                            <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
+                              <PayrollDashboard />
+                            </div>
+                          ) : product.id === 'eazzio-books' ? (
+                            <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
+                              <BooksDashboard />
+                            </div>
+                          ) : product.id === 'eazzio-whats-bulk' ? (
+                            <div style={{ flex: 1, width: '100%', overflowY: 'auto' }}>
+                              <WhatsBulkDashboard />
+                            </div>
+                          ) : (
+                            <div className="iphone-app-screenshot-placeholder"></div>
+                          )}
                           
-                          <div className="iphone-single-product-content">
-                            <div className="iphone-product-icon">
-                              {isImageIcon ? (
-                                <img src={product.icon} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
-                              ) : (
-                                <IconComponent size={20} />
-                              )}
-                            </div>
-                            <h3 className="iphone-product-title">{product.name}</h3>
-                            <p className="iphone-product-desc">{product.shortDescription}</p>
-                            
-                            <div className="iphone-product-features">
-                              {product.features.slice(0, 3).map((feature, idx) => (
-                                <div key={idx} className="iphone-feature-row">
-                                  <Check size={14} className="text-primary" />
-                                  <span>{feature}</span>
+                          <div className="iphone-single-product-content" style={['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk'].includes(product.id) ? { flexGrow: 0, paddingTop: '0.25rem' } : {}}>
+                            {!['eazzio-telecaller', 'eazzio-payroll', 'eazzio-books', 'eazzio-whats-bulk'].includes(product.id) && (
+                              <>
+                                <div className="iphone-product-icon">
+                                  {isImageIcon ? (
+                                    <img src={product.icon} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }} />
+                                  ) : (
+                                    <IconComponent size={20} />
+                                  )}
                                 </div>
-                              ))}
-                            </div>
+                                <h3 className="iphone-product-title">{product.name}</h3>
+                                <p className="iphone-product-desc">{product.shortDescription}</p>
+                                
+                                <div className="iphone-product-features">
+                                  {product.features.slice(0, 3).map((feature, idx) => (
+                                    <div key={idx} className="iphone-feature-row">
+                                      <Check size={14} className="text-primary" />
+                                      <span>{feature}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </>
+                            )}
                             
                             {product.externalLink !== "Mobile App" ? (
                               <a href={product.externalLink} target="_blank" rel="noopener noreferrer" className="btn btn-primary iphone-btn-full" tabIndex={index === activeIndex ? 0 : -1}>

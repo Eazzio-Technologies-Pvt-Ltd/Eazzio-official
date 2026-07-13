@@ -12,7 +12,6 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ChatAI from './components/ChatAI';
 import MotionProvider from './motion/MotionProvider';
-import InteractiveSilkBackground from './components/InteractiveSilkBackground/InteractiveSilkBackground';
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Router>
           <ScrollToTop />
           <div className="app-wrapper flex flex-col min-h-screen">
-            <InteractiveSilkBackground />
             <Navbar />
             <main className="flex-grow">
               <Routes>

@@ -1,0 +1,253 @@
+.wb-dashboard {
+  background-color: #f8fafc;
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 8px 10px 8px; /* Safe area for iPhone notch */
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-x: hidden;
+}
+
+.wb-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.wb-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wb-logo-icon {
+  background-color: #10b981;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wb-logo-text {
+  font-size: 10px;
+  font-weight: 800;
+  color: #047857;
+}
+
+.wb-nav-placeholder {
+  width: 12px;
+}
+
+.wb-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.wb-page-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.wb-page-sub {
+  font-size: 6px;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.wb-action-btns {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.wb-btn-primary {
+  background-color: #10b981;
+  color: white;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 6px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.wb-btn-secondary {
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 6px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.wb-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wb-card {
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.wb-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.wb-card-title {
+  font-size: 8px;
+  font-weight: 700;
+  color: #1f2937;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  letter-spacing: 0.02em;
+}
+
+.wb-badge-active {
+  font-size: 5px;
+  font-weight: 700;
+  color: #059669;
+  background-color: #d1fae5;
+  padding: 2px 4px;
+  border-radius: 3px;
+  border: 1px solid #a7f3d0;
+}
+
+.wb-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.wb-label {
+  font-size: 6px;
+  font-weight: 700;
+  color: #6b7280;
+  letter-spacing: 0.05em;
+}
+
+.wb-input, .wb-textarea {
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: #f9fafb;
+  padding: 4px 6px;
+  font-size: 7px;
+  color: #9ca3af;
+}
+
+.wb-textarea {
+  min-height: 30px;
+}
+
+.wb-templates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.wb-template-tag {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-size: 5.5px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.wb-btn-send {
+  background-color: #10b981;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 7px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.wb-preview-box {
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.wb-preview-header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 3px 6px;
+  font-size: 6px;
+  font-weight: 700;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.wb-preview-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.wb-preview-body {
+  padding: 10px;
+  font-size: 6px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.4;
+  background-color: #eceee5; /* WhatsApp chat bg tint */
+}
+
+.wb-text-link {
+  font-size: 6px;
+  color: #6b7280;
+}
+
+.wb-logs-empty {
+  font-size: 6px;
+  color: #6b7280;
+  text-align: center;
+  padding: 8px 0;
+}

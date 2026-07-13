@@ -1,0 +1,187 @@
+.tc-dashboard {
+  background-color: #f8fafc;
+  width: 100%;
+  min-height: 100%;
+  padding: 28px 10px 10px 10px;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tc-header h2 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  padding: 4px 4px 8px 4px;
+}
+
+.tc-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tc-section-title {
+  font-size: 8px;
+  font-weight: 700;
+  color: #94a3b8;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-left: 4px;
+}
+
+.tc-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* Metric Cards */
+.tc-card {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border-left: 3px solid transparent;
+}
+
+.tc-card-work { border-left-color: #6366f1; }
+.tc-card-talk { border-left-color: #10b981; }
+.tc-card-break { border-left-color: #a855f7; }
+.tc-card-idle { border-left-color: #f59e0b; }
+
+.tc-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.tc-icon-bg {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+}
+
+.tc-card-work .tc-icon-bg { color: #6366f1; background-color: #e0e7ff; }
+.tc-card-talk .tc-icon-bg { color: #10b981; background-color: #d1fae5; }
+.tc-card-break .tc-icon-bg { color: #a855f7; background-color: #f3e8ff; }
+.tc-card-idle .tc-icon-bg { color: #f59e0b; background-color: #fef3c7; }
+
+.tc-card-value {
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.tc-card-work .tc-highlight { color: #6366f1; }
+.tc-card-talk .tc-highlight { color: #10b981; }
+.tc-card-break .tc-highlight { color: #a855f7; }
+.tc-card-idle .tc-highlight { color: #f59e0b; }
+
+.tc-muted {
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.tc-progress-bar {
+  height: 2px;
+  background-color: #f1f5f9;
+  border-radius: 2px;
+  width: 100%;
+}
+
+.tc-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.tc-card-work .tc-progress-fill { background-color: #6366f1; }
+.tc-card-talk .tc-progress-fill { background-color: #10b981; }
+.tc-card-break .tc-progress-fill { background-color: #a855f7; }
+.tc-card-idle .tc-progress-fill { background-color: #f59e0b; }
+
+/* Outcome Cards */
+.tc-outcome-card {
+  background: white;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid transparent;
+  gap: 4px;
+}
+
+.tc-outcome-connected { border-color: #a7f3d0; }
+.tc-outcome-non { border-color: #fde68a; }
+.tc-outcome-received { border-color: #bae6fd; }
+.tc-outcome-missed { border-color: #fecaca; }
+
+.tc-outcome-badge {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tc-outcome-connected .tc-outcome-badge { background-color: #ecfdf5; color: #059669; }
+.tc-outcome-non .tc-outcome-badge { background-color: #fffbeb; color: #d97706; }
+.tc-outcome-received .tc-outcome-badge { background-color: #f0f9ff; color: #0284c7; }
+.tc-outcome-missed .tc-outcome-badge { background-color: #fef2f2; color: #dc2626; }
+
+.tc-outcome-val {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.tc-outcome-connected .tc-outcome-val { color: #059669; }
+.tc-outcome-non .tc-outcome-val { color: #d97706; }
+.tc-outcome-received .tc-outcome-val { color: #0284c7; }
+.tc-outcome-missed .tc-outcome-val { color: #dc2626; }
+
+.tc-outcome-dur {
+  font-size: 8px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Actions */
+.tc-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tc-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+
+.tc-btn-start { background-color: #e0e7ff; color: #4f46e5; border: 1px solid #c7d2fe; }
+.tc-btn-break { background-color: #f3e8ff; color: #9333ea; border: 1px solid #e9d5ff; }
+.tc-btn-end { background-color: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
