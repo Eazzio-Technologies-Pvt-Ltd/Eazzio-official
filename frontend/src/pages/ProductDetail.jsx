@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { products } from '../data/products';
 import { CheckCircle2, Star, ArrowRight, Shield, Zap } from 'lucide-react';
 import * as Icons from 'lucide-react';
+import Reveal from '../motion/Reveal';
 import './ProductDetail.css';
 
 const ProductDetail = () => {
@@ -15,6 +16,7 @@ const ProductDetail = () => {
   
   const isImageIcon = typeof product.icon === 'string' && (product.icon.includes('.') || product.icon.includes('/'));
   const IconComponent = !isImageIcon ? (Icons[product.icon] || Icons.Box) : null;
+
 
   return (
     <div className="product-detail-page">
@@ -110,7 +112,7 @@ const ProductDetail = () => {
       </section>
 
       <section className="section cta-section text-center">
-        <div className="container">
+        <Reveal direction="up" duration={0.8} className="container">
           <h2 className="title text-white">See {product.name} in Action</h2>
           <p className="subtitle text-white-muted mx-auto">
             Schedule a personalized demo to learn how our software can streamline your operations.
@@ -118,7 +120,7 @@ const ProductDetail = () => {
           <Link to="/contact" state={{ selectedProduct: product.name }} className="btn btn-primary mt-8 btn-large">
             {product.ctaText}
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

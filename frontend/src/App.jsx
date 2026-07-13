@@ -11,31 +11,38 @@ import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import TermsAndConditions from './pages/TermsAndConditions';
 import ChatAI from './components/ChatAI';
+import MotionProvider from './motion/MotionProvider';
+import InteractiveSilkBackground from './components/InteractiveSilkBackground/InteractiveSilkBackground';
 
 function App() {
   return (
     <HelmetProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="app-wrapper flex flex-col min-h-screen">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/:slug" element={<ProductDetail />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            </Routes>
-          </main>
-          <Footer />
-          <ChatAI />
-        </div>
-      </Router>
+      <MotionProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="app-wrapper flex flex-col min-h-screen">
+            <InteractiveSilkBackground />
+            <Navbar />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/products" element={<Products />} />
+
+                <Route path="/products/:slug" element={<ProductDetail />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              </Routes>
+            </main>
+            <Footer />
+            <ChatAI />
+          </div>
+        </Router>
+      </MotionProvider>
     </HelmetProvider>
   );
 }
 
 export default App;
+
